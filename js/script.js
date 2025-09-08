@@ -21,8 +21,8 @@ fetch("data/data.json")
     resultsDiv.innerHTML = `<p style="color:red;">Error loading data.json: ${error.message}</p>`;
   });
 
-// Handle lookup when OK button is clicked
-document.getElementById("lookup-ok").addEventListener("click", () => {
+// Shared handler for lookup
+function handleLookup() {
   const searchString = document.getElementById("lookup-input").value.trim();
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = ""; // Clear previous results
@@ -63,12 +63,20 @@ document.getElementById("lookup-ok").addEventListener("click", () => {
   }
 
   document.getElementById("lookup-input").value = ""; // Clear input
-});
+}
+
+// ✅ Add both click and touchstart listeners for OK button
+const okButton = document.getElementById("lookup-ok");
+okButton.addEventListener("click", handleLookup);
+okButton.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevents ghost click
+  handleLookup();
+}, { passive: false });
 
 // ✅ Handle lookup when Enter key is pressed
 document.getElementById("lookup-input").addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    document.getElementById("lookup-ok").click();
+    handleLookup();
   }
 });
 
