@@ -1,1 +1,42 @@
-dummy content
+     body {
+	font-family: Verdana, sans-serif;
+        background-color: #f9f9f9;
+        margin: 2em;
+      }
+
+      #lookup-area {
+        margin-bottom: 1em;
+      }
+
+      #lookup-input {
+        padding: 0.5em;
+        width: 250px;
+        font-size: 16px;
+      }
+
+      #lookup-ok,
+      #lookup-cancel {
+        padding: 0.5em 1em;
+        margin-left: 0.5em;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #results {
+        border-top: 1px solid #ccc;
+        padding-top: 1em;
+      }
+
+      #results p {
+        background: #e0f7fa;
+        padding: 0.5em;
+        margin: 0.5em 0;
+      }
+
+      strong {
+        color: #00796b;
+      }
+
+      span {
+        font-weight: bold;
+      }
